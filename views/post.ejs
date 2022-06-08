@@ -1,0 +1,80 @@
+<%- include("partials/header"); -%>
+<div style="border: 1px solid #d10608; padding: 20px; width: 100%; margin: 20px auto; border-radius: 20px;">
+  <div class="MuiPaper-root MuiCard-root jss106 MuiPaper-elevation1 MuiPaper-rounded">
+    <div class="MuiCardContent-root">
+      <h2 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"><u><%=title%></u></h2>
+      <p class="MuiTypography-root MuiTypography-body2"><%=content%></p>
+    </div>
+    <span class="MuiCardActionArea-focusHighlight"></span><span class="MuiTouchRipple-root"></span>
+    <div class="MuiCardActions-root MuiCardActions-spacing">
+        <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"
+        style="color: white; padding: 10px 20px; border-radius: 6px; margin: 10px 5px; background-color: #d10608;"
+        data-bs-toggle="modal" data-bs-target="#exampleModal">Review</button>
+        <!-- Modal -->
+        <div class="modal fade" style="color:black" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                  <div class="text-right cross">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="card-body text-center"> <img src=" https://i.imgur.com/d2dKtI7.png" height="100" width="100"></div>
+                  <form class="" action="/posts/<%=page_no%>" method="post">
+                    <div class="card-body">
+                      <h4>Name</h4>
+                      <input type="text" class="comment-area" name="name" value="">
+                      <div class="comment-box">
+                      <h4>How was your experience?</h4>
+                      <div class="rating">
+                        <input type="radio" name="star" value="5" id="5">
+                        <label for="5">☆</label>
+                        <input type="radio" name="star" value="4" id="4">
+                        <label for="4">☆</label>
+                        <input type="radio" name="star" value="3" id="3">
+                        <label for="3">☆</label>
+                        <input type="radio" name="star" value="2" id="2">
+                        <label for="2">☆</label>
+                        <input type="radio" name="star" value="1" id="1">
+                        <label for="1">☆</label>
+                      </div>
+                      <h4>Add a comment</h4>
+                      <div class="comment-area"> <textarea class="form-control" name="comment" placeholder="what is your view?" rows="4"></textarea> </div>
+                    </div>
+                    <div class="text-center mt-4"> <button class="btn btn-success send px-5">Send message <i class="fa fa-long-arrow-right ml-1"></i></button>
+                  </div>
+                    </div>
+                  </form>
+                  </div>
+              </div>
+    </div>
+    <br>
+    <h2 style="text-align: center; "><u>Comments</u></h2>
+    <% for(var i=0; i<reviews.length; i++){ %>
+      <div style="border: 1px solid #d10608; padding: 20px; margin: 20px; border-radius: 20px; display: flex;">
+        <div>
+          <div class="MuiAvatar-root MuiAvatar-circle">
+          <img src="https://randomuser.me/api/portraits/men/<%=i+1%>.jpg" class="MuiAvatar-img">
+        </div>
+      </div>
+      <div style="width: 90%;">
+        <div class="MuiPaper-root MuiCard-root jss216 MuiPaper-elevation1 MuiPaper-rounded">
+          <div class="MuiCardContent-root">
+            <h3 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"><%=reviews[i].name%></h3>
+            <div class="cheating">
+            <% for(var j=4; j>=0; j--){ %>
+              <% if(j<reviews[i].star){ %>
+                <label>☆</label>
+              <% }else{ %>
+                <% }%>
+                <% }%>
+              </div>
+            <p class="MuiTypography-root MuiTypography-body2"><%=reviews[i].comment%></p>
+          </div>
+          <span class="MuiCardActionArea-focusHighlight"></span><span class="MuiTouchRipple-root"></span>
+        </div>
+      </div>
+    </div>
+  <% }%>
+  </div>
+</div>
+</div>
+<%- include("partials/footer"); -%>

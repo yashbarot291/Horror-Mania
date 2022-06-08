@@ -1,0 +1,47 @@
+<%- include("partials/header"); -%>
+<div class="title_sec row">
+  <!-- <div style="padding: 20px; margin: 20px; color: #d10608;   font-family: 'Zombie Control', sans-serif;  text-align: center;">
+    <h1 >Horror Mania</h1>
+  </div> -->
+  <!-- padding: 20px; margin: 20px; color: #d10608;    -->
+  <div class="title_help" style="padding: 20px; margin: 20px; color: #d10608; font-family: 'Zombie Control', sans-serif;  text-align: center;">
+      <span id="title_name">H</span>
+      <span id="title_name">O</span>
+      <span id="title_name">R</span>
+      <span id="title_name">R</span>
+      <span id="title_name">O</span>
+      <span id="title_name">R</span>
+      <span id="title_name">&nbsp;</span>
+      <span id="title_name">M</span>
+      <span id="title_name">A</span>
+      <span id="title_name">N</span>
+      <span id="title_name">I</span>
+      <span id="title_name">A</span>
+  </div>
+</div>
+</div>
+</section>
+<h2 style="text-align: center;">Total Posts Loaded : <%=posts.length%></h2>
+<section>
+  <% for(var i=0; i<posts.length; i++){ %>
+  <div style="border: 1px solid #d10608; padding: 20px; width: 53%; margin: 20px auto; border-radius: 20px;">
+    <div class="MuiPaper-root MuiCard-root jss106 MuiPaper-elevation1 MuiPaper-rounded">
+      <div class="MuiCardContent-root">
+        <h2 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom">Post No: <%=i+1%></h2>
+        <h3 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"><%=posts[i].title%></h3>
+        <p class="MuiTypography-root MuiTypography-body2"><%=posts[i].content.substring(0, 300) + "..."%></p>
+      </div>
+      <span class="MuiCardActionArea-focusHighlight"></span><span class="MuiTouchRipple-root"></span>
+      <div class="MuiCardActions-root MuiCardActions-spacing">
+        <a href="/posts/<%=i+1%>" style="text-decoration: none;">
+          <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button" style="color: white; padding: 10px 20px; border-radius: 6px; margin: 10px 5px; background-color: #d10608;">
+            <span class="MuiButton-label">Read Details</span>
+            <span class="MuiTouchRipple-root"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+<% }%>
+</section>
+<%- include("partials/footer"); -%>
